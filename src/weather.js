@@ -10,6 +10,7 @@ const container2 = document.querySelector('.current_two');
 const img = document.querySelector(".logo");
 
 
+
 async function getWeather(name){
     if(!name.trim() || !name){
         alert("Enter a city name");
@@ -56,9 +57,11 @@ async function getWeather(name){
         if(container){
             const  iconId = `${days.icon}`;
             console.log(iconId);
-             img.src = `https://github.com/visualcrossing/WeatherIcons/tree/main/PNG/1st%20Set%20-%20Color/rain.png`;
-            container.querySelector(".feelslike").textContent = `Feelslike${days.feelslike}`;
+             img.src = `/icons/${iconId}.png`;
+            container.querySelector(".feelslike").textContent = `${days.feelslike}`;
             container.querySelector(".condition").textContent = `${days.conditions}`;
+            container.querySelector(".minValue").textContent = `${days.tempmin}`;
+            container.querySelector(".maxValue").textContent = `${days.tempmax}`;
         }
         
     });
