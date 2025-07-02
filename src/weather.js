@@ -8,6 +8,7 @@ const next = document.querySelector('.next15');
 const container1 = document.querySelector('.current_one');
 const container2 = document.querySelector('.current_two');
 const img = document.querySelector(".logo");
+const slider = document.querySelector(".slider");
 
 
 
@@ -18,7 +19,7 @@ async function getWeather(name){
     }
 
     const api = 'U5EW32CQS23T7AYT84HR5TV39';
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${name}/next15days?unitGroup=us&key=${api}&elements=tempmax,tempmin,feelslike,conditions,icon,dew,humidity,windspeed,cloudcover&iconSet=icons1`
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${name}/next8days?unitGroup=us&key=${api}&elements=tempmax,tempmin,feelslike,conditions,icon,dew,humidity,windspeed,cloudcover,datetime&iconSet=icons1`
 
     
     let user;
@@ -60,7 +61,8 @@ if(Data && Data.days){
 days = Data.days;
 }
 else{
-    console.log("Something wrong");
+    alert("Enter Valid City, State, Country");
+    return;
 }
 
 /* const days = Data.days;*/
@@ -69,6 +71,8 @@ else{
     days.forEach((days, index) => {
         const container = document.getElementById(`day${index}`);
         if(container){
+
+            if(index === 0){
             const  iconId = `${days.icon}`;
             console.log(iconId);
              img.src = `/icons/${iconId}.png`;
@@ -80,9 +84,21 @@ else{
             container.querySelector(".wind").textContent = `${days.windspeed}m/s`;
             container.querySelector(".humidity").textContent = `${days.humidity}%`;
             container.querySelector(".cloudyness").textContent = `${days.cloudcover}%`;
+          /*  container.querySelector(".date").textContent = `${days.datetime}`*/
+           }
+           else{
+           container.querySelector(".date").textContent = `${days.datetime}`;
+           const  iconId = `${days.icon}`;
+             container.querySelector(".icon").src = `/icons/${iconId}.png`;
+           container.querySelector(".feels").textContent = `${days.feelslike}°F`;
+           }
+        }
+
+        
         }
         
-    });
+    );
+  
 
     
 }
@@ -91,5 +107,7 @@ submit.addEventListener('click', ()=>{
     const cityName = city.value;
     getWeather(cityName);
 })
+
+
 
 export default  getWeather;
