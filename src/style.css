@@ -87,29 +87,59 @@ body{
     align-items: center;
     justify-content: center;
     margin-top: 70px;
-    gap: 10px;
+    gap: 5px;
+    margin-bottom: 30px;
 }
-
+.logo{
+    font-size: 50px;
+    height: 150px;
+}
+.condition{
+    font-size: 25px;
+}
+#place{
+    font-size: 30px;
+}
+.feelslike{
+    font-size: 80px;
+}
 .minMax{
     display: flex;
-    gap: 10px;
+    gap: 20px;
+}
+.minValue{
+    font-size: 25px;
+}
+.maxValue{
+    font-size: 25px;
 }
 
 .min{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.max{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .current_two{
-    display: flex;
-    height: 200px;
-    margin-left: 150px;
-    padding: 20px;
-    border-radius: 20px;
-    width: 80%;
     background-color: rgb(30, 53, 226);
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 80%;
+    margin-bottom: 10px;
+    padding-left: 50px ;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 40px;
+    border-radius: 20px;
+    margin-left: 150px;
+    display: grid;
+    font-size: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    
+    
 }
 
 .rainChanceValue{
@@ -131,3 +161,69 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.windcontain{
+    background-color: azure;    
+    height: 180px;
+    width: 240px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.rainchanceContain{
+    background-color: rgb(23, 123, 224);
+    height: 180px;
+    width: 240px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.humidityContain{
+    background-color: rgb(97, 229, 255);
+    height: 180px;
+    width: 240px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cloudContain{
+    height: 180px;
+    background-color: rgb(163, 158, 158);
+    width: 240px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+ /* icons Sizing */
+.fa-smog{
+    font-size: 55px;
+
+}
+.fa-wind{
+    font-size: 55px;
+}
+.fa-droplet{
+    font-size: 55px;
+}
+.fa-cloud{
+    font-size: 55px;
+}
+
+.visibility{
+    font-size: 45px;
+}
+.wind{
+    font-size: 45px;
+}
+.humidity{
+    font-size: 45px;
+}
+.cloudyness{
+    font-size: 45px;
+}
+
