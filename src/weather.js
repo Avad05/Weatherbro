@@ -1,6 +1,7 @@
 import "./style.css";
 
 
+
 const city = document.getElementById('city');
 const submit = document.querySelector('.submit');
 const current = document.querySelector('.current');
@@ -11,6 +12,29 @@ const img = document.querySelector(".logo");
 const slider = document.querySelector(".slider");
 const degree = document.getElementById('degree');
 const api = 'U5EW32CQS23T7AYT84HR5TV39';
+
+window.addEventListener('DOMContentLoaded', () =>{
+    const name = localStorage.getItem("name");
+    const degrees = localStorage.getItem("degrees");
+    const unit = localStorage.getItem("unit");
+
+    if(name && degrees && unit){
+       getWeather(name, degrees, unit);
+    }
+    else{
+       getWeather("Mumbai", "uk", "°C");
+    }
+});
+
+
+function setWeather(name, degrees, unit){
+      localStorage.setItem("name", name);
+      localStorage.setItem("degrees", degrees);
+      localStorage.setItem("unit", unit);
+
+      getWeather(name, degrees, unit);
+}
+
 
 
 async function getWeather(name, degrees, unit){
@@ -90,7 +114,7 @@ submit.addEventListener('click', ()=>{
     const cityName = city.value;
     let country = "uk";
     let units = "°C";
-    getWeather(cityName, country, units);
+    setWeather(cityName, country, units);
 })
 
 degree.addEventListener('click', () => {
