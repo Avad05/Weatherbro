@@ -82,7 +82,7 @@ else{
             if(index === 0){
             const  iconId = `${days.icon}`;
             console.log(iconId);
-             img.src = `/icons/${iconId}.png`;
+             img.src = require(`./asset/icons/${iconId}.png`);
             container.querySelector(".feelslike").textContent = `${days.feelslike}${unit}`;
             container.querySelector(".condition").textContent = `${days.conditions}`;
             container.querySelector(".minValue").textContent = `${days.tempmin}${unit}`;
@@ -96,7 +96,7 @@ else{
            else{
            container.querySelector(".date").textContent = `${days.datetime}`;
            const  iconId = `${days.icon}`;
-             container.querySelector(".icon").src = `/icons/${iconId}.png`;
+             container.querySelector(".icon").src = require(`./asset/icons/${iconId}.png`);
            container.querySelector(".feels").textContent = `${days.feelslike}${unit}`;
            }
         }
