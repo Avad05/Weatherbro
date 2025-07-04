@@ -4,7 +4,8 @@
   "description": "A weather application to implement the concepts for API call (async / await, try / catch)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "git push origin `git subtree split --prefix dist main`:gh-pages --force"
   },
   "keywords": [],
   "author": "",
